@@ -1,1 +1,1408 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grupo 8 | Amazonía</title>
+
+    <style>
+
+        /* =========================================================
+           CONFIGURACIÓN GENERAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            background: #03140f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================================
+           HERO PRINCIPAL
+        ========================================================= */
+
+        .hero {
+
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(55, 150, 100, .18),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    to bottom,
+                    #09271d 0%,
+                    #061b14 45%,
+                    #03120d 100%
+                );
+        }
+
+
+        /* =========================================================
+           LUZ SUPERIOR
+        ========================================================= */
+
+        .luz {
+
+            position: absolute;
+
+            top: -300px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 900px;
+            height: 700px;
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(177, 255, 192, .22),
+                    rgba(45, 130, 70, .08) 35%,
+                    transparent 70%
+                );
+
+            filter: blur(30px);
+
+            animation: respirar 7s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes respirar {
+
+            from {
+                opacity: .55;
+                transform:
+                    translateX(-50%)
+                    scale(1);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateX(-50%)
+                    scale(1.08);
+            }
+        }
+
+
+        /* =========================================================
+           SOL / LUNA VERDE
+        ========================================================= */
+
+        .sol {
+
+            position: absolute;
+
+            width: 270px;
+            height: 270px;
+
+            top: 10%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(200, 255, 190, .35),
+                    rgba(83, 177, 98, .13) 45%,
+                    transparent 70%
+                );
+
+            filter: blur(2px);
+
+            box-shadow:
+                0 0 90px rgba(85, 200, 100, .22);
+
+            animation: solPulso 5s infinite alternate;
+        }
+
+
+        @keyframes solPulso {
+
+            from {
+                opacity: .65;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================================================
+           NIEBLA
+        ========================================================= */
+
+        .niebla {
+
+            position: absolute;
+
+            width: 160%;
+            height: 320px;
+
+            left: -30%;
+            bottom: 18%;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(180, 220, 190, .11),
+                    transparent 65%
+                );
+
+            filter: blur(35px);
+
+            animation: moverNiebla 15s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes moverNiebla {
+
+            from {
+                transform: translateX(-5%);
+            }
+
+            to {
+                transform: translateX(8%);
+            }
+        }
+
+
+        /* =========================================================
+           SELVA DEL FONDO
+        ========================================================= */
+
+        .selva-fondo {
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 52%;
+
+            opacity: .7;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 10% 100%,
+                    #092b1d 0 14%,
+                    transparent 15%
+                ),
+
+                radial-gradient(
+                    ellipse at 23% 100%,
+                    #0b3523 0 19%,
+                    transparent 20%
+                ),
+
+                radial-gradient(
+                    ellipse at 38% 100%,
+                    #092b1d 0 20%,
+                    transparent 21%
+                ),
+
+                radial-gradient(
+                    ellipse at 53% 100%,
+                    #0d3c28 0 23%,
+                    transparent 24%
+                ),
+
+                radial-gradient(
+                    ellipse at 70% 100%,
+                    #08291c 0 20%,
+                    transparent 21%
+                ),
+
+                radial-gradient(
+                    ellipse at 85% 100%,
+                    #0d3925 0 24%,
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    ellipse at 100% 100%,
+                    #08291c 0 20%,
+                    transparent 21%
+                );
+        }
+
+
+        /* =========================================================
+           ÁRBOLES
+        ========================================================= */
+
+        .arbol {
+
+            position: absolute;
+
+            bottom: -40px;
+
+            width: 140px;
+            height: 690px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #020906,
+                    #061610,
+                    #020906
+                );
+
+            border-radius:
+                70% 30% 15% 15% /
+                10% 10% 5% 5%;
+
+            z-index: 3;
+
+            filter: blur(.3px);
+        }
+
+
+        .arbol::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 280px;
+
+            top: -120px;
+            left: -60px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 50%,
+                    #05150e 0 30%,
+                    transparent 32%
+                ),
+                radial-gradient(
+                    ellipse at 20% 60%,
+                    #061a11 0 30%,
+                    transparent 32%
+                ),
+                radial-gradient(
+                    ellipse at 80% 60%,
+                    #05150e 0 30%,
+                    transparent 32%
+                );
+        }
+
+
+        .arbol-izq {
+            left: -35px;
+            transform: rotate(-3deg);
+        }
+
+
+        .arbol-der {
+            right: -35px;
+            transform: rotate(3deg);
+        }
+
+
+        /* =========================================================
+           RAMAS
+        ========================================================= */
+
+        .rama {
+
+            position: absolute;
+
+            height: 22px;
+
+            background: #020906;
+
+            border-radius: 100px;
+
+            z-index: 4;
+        }
+
+
+        .rama-izquierda {
+
+            width: 360px;
+
+            left: -40px;
+            top: 28%;
+
+            transform: rotate(10deg);
+        }
+
+
+        .rama-derecha {
+
+            width: 400px;
+
+            right: -50px;
+            top: 23%;
+
+            transform: rotate(-10deg);
+        }
+
+
+        /* =========================================================
+           HOJAS
+        ========================================================= */
+
+        .hoja {
+
+            position: absolute;
+
+            width: 80px;
+            height: 36px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #061a10,
+                    #0b3821
+                );
+
+            border-radius:
+                100% 0 100% 0;
+
+            z-index: 5;
+
+            opacity: .92;
+
+            animation: hojaMovimiento 4s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes hojaMovimiento {
+
+            from {
+                transform: rotate(var(--r)) translateY(0);
+            }
+
+            to {
+                transform: rotate(calc(var(--r) + 6deg))
+                translateY(5px);
+            }
+        }
+
+
+        .h1 {
+            top: 16%;
+            left: 3%;
+            --r: 25deg;
+        }
+
+        .h2 {
+            top: 23%;
+            left: 12%;
+            --r: -15deg;
+        }
+
+        .h3 {
+            top: 11%;
+            right: 7%;
+            --r: -30deg;
+        }
+
+        .h4 {
+            top: 28%;
+            right: 11%;
+            --r: 30deg;
+        }
+
+        .h5 {
+            bottom: 17%;
+            left: 7%;
+            --r: 45deg;
+        }
+
+        .h6 {
+            bottom: 10%;
+            right: 9%;
+            --r: -40deg;
+        }
+
+
+        /* =========================================================
+           LUCIÉRNAGAS
+        ========================================================= */
+
+        .luci {
+
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #caff99;
+
+            box-shadow:
+                0 0 5px #aaff7f,
+                0 0 12px #aaff7f,
+                0 0 22px rgba(150,255,100,.8);
+
+            z-index: 7;
+
+            animation:
+                luciernaga 6s infinite ease-in-out;
+        }
+
+
+        @keyframes luciernaga {
+
+            0% {
+                opacity: .1;
+                transform: translate(0, 0);
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(25px, -30px);
+            }
+
+            70% {
+                opacity: .4;
+            }
+
+            100% {
+                opacity: .1;
+                transform: translate(-20px, 20px);
+            }
+        }
+
+
+        .l1 {
+            top: 24%;
+            left: 18%;
+        }
+
+        .l2 {
+            top: 44%;
+            left: 12%;
+            animation-delay: 2s;
+        }
+
+        .l3 {
+            top: 33%;
+            right: 19%;
+            animation-delay: 1s;
+        }
+
+        .l4 {
+            top: 55%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .l5 {
+            top: 17%;
+            right: 32%;
+            animation-delay: 4s;
+        }
+
+        .l6 {
+            bottom: 17%;
+            left: 28%;
+            animation-delay: 2.5s;
+        }
+
+
+        /* =========================================================
+           RÍO
+        ========================================================= */
+
+        .rio {
+
+            position: absolute;
+
+            width: 32%;
+            height: 44%;
+
+            bottom: -15%;
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                perspective(500px)
+                rotateX(68deg);
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(84, 164, 128, .25),
+                    rgba(25, 91, 75, .35),
+                    rgba(5, 35, 29, .65)
+                );
+
+            filter: blur(3px);
+
+            border-radius: 40% 40% 0 0;
+
+            box-shadow:
+                0 0 80px rgba(77, 160, 123, .15);
+
+            z-index: 2;
+        }
+
+
+        /* =========================================================
+           NAVEGACIÓN
+        ========================================================= */
+
+        nav {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 30px 7%;
+
+            z-index: 20;
+        }
+
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            letter-spacing: 4px;
+        }
+
+
+        .logo-icon {
+
+            width: 10px;
+            height: 10px;
+
+            background: #8aff77;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 14px #7aff67;
+        }
+
+
+        nav ul {
+
+            display: flex;
+
+            list-style: none;
+
+            gap: 40px;
+        }
+
+
+        nav a {
+
+            color: rgba(255,255,255,.65);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            transition: .3s;
+        }
+
+
+        nav a:hover {
+
+            color: white;
+        }
+
+
+        /* =========================================================
+           CONTENIDO CENTRAL
+        ========================================================= */
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 10;
+
+            text-align: center;
+
+            max-width: 900px;
+
+            padding: 0 30px;
+
+            transform: translateY(-5px);
+        }
+
+
+        .tag {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding:
+                8px
+                18px;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid
+                rgba(150,255,170,.25);
+
+            border-radius: 100px;
+
+            background:
+                rgba(20,80,52,.15);
+
+            backdrop-filter:
+                blur(8px);
+
+            color:
+                #b4f6b0;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+        }
+
+
+        .tag span {
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                #83ff70;
+
+            box-shadow:
+                0 0 10px
+                #83ff70;
+        }
+
+
+        /* =========================================================
+           TÍTULO
+        ========================================================= */
+
+        .grupo {
+
+            font-size:
+                clamp(
+                    85px,
+                    14vw,
+                    190px
+                );
+
+            line-height: .82;
+
+            font-weight: 900;
+
+            letter-spacing:
+                clamp(
+                    2px,
+                    1vw,
+                    15px
+                );
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #d9f3d8 45%,
+                    #79b77c 100%
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            text-shadow:
+                0 15px 60px
+                rgba(0,0,0,.45);
+
+            filter:
+                drop-shadow(
+                    0 12px 10px
+                    rgba(0,0,0,.45)
+                );
+        }
+
+
+        .ocho {
+
+            position: relative;
+
+            display: inline-block;
+
+            color: transparent;
+        }
+
+
+        /* =========================================================
+           SUBTÍTULO
+        ========================================================= */
+
+        .amazon {
+
+            margin-top: 25px;
+
+            font-size:
+                clamp(
+                    13px,
+                    1.5vw,
+                    18px
+                );
+
+            letter-spacing:
+                8px;
+
+            text-transform:
+                uppercase;
+
+            color:
+                rgba(
+                    205,
+                    239,
+                    208,
+                    .75
+                );
+        }
+
+
+        .linea {
+
+            width: 70px;
+            height: 1px;
+
+            margin:
+                25px auto;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #82d486,
+                    transparent
+                );
+        }
+
+
+        .descripcion {
+
+            max-width:
+                620px;
+
+            margin:
+                auto;
+
+            color:
+                rgba(
+                    223,
+                    237,
+                    225,
+                    .67
+                );
+
+            font-size:
+                15px;
+
+            line-height:
+                1.9;
+        }
+
+
+        /* =========================================================
+           BOTÓN
+        ========================================================= */
+
+        .explorar {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                14px;
+
+            margin-top:
+                35px;
+
+            padding:
+                15px
+                27px;
+
+            color:
+                #e8ffe4;
+
+            text-decoration:
+                none;
+
+            font-size:
+                12px;
+
+            letter-spacing:
+                2px;
+
+            border:
+                1px solid
+                rgba(
+                    180,
+                    255,
+                    180,
+                    .25
+                );
+
+            border-radius:
+                50px;
+
+            background:
+                rgba(
+                    30,
+                    100,
+                    60,
+                    .13
+                );
+
+            backdrop-filter:
+                blur(10px);
+
+            transition:
+                .4s;
+        }
+
+
+        .explorar:hover {
+
+            transform:
+                translateY(-4px);
+
+            background:
+                rgba(
+                    80,
+                    170,
+                    90,
+                    .2
+                );
+
+            border-color:
+                rgba(
+                    180,
+                    255,
+                    180,
+                    .6
+                );
+
+            box-shadow:
+                0 15px 50px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+                );
+        }
+
+
+        .flecha {
+
+            font-size:
+                17px;
+        }
+
+
+        /* =========================================================
+           TEXTO INFERIOR
+        ========================================================= */
+
+        .coordenadas {
+
+            position:
+                absolute;
+
+            bottom:
+                30px;
+
+            left:
+                7%;
+
+            z-index:
+                15;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                3px;
+
+            line-height:
+                2;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .25
+                );
+        }
+
+
+        .estado {
+
+            position:
+                absolute;
+
+            bottom:
+                32px;
+
+            right:
+                7%;
+
+            z-index:
+                15;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+            font-size:
+                9px;
+
+            letter-spacing:
+                2px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .35
+                );
+        }
+
+
+        .estado span {
+
+            width:
+                6px;
+
+            height:
+                6px;
+
+            background:
+                #72f26c;
+
+            border-radius:
+                50%;
+
+            box-shadow:
+                0 0 8px
+                #72f26c;
+        }
+
+
+        /* =========================================================
+           SCROLL INDICATOR
+        ========================================================= */
+
+        .scroll {
+
+            position:
+                absolute;
+
+            bottom:
+                23px;
+
+            left:
+                50%;
+
+            transform:
+                translateX(-50%);
+
+            z-index:
+                15;
+
+            width:
+                1px;
+
+            height:
+                38px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        .5
+                    ),
+                    transparent
+                );
+
+            animation:
+                scrollAnimation
+                2s
+                infinite;
+        }
+
+
+        @keyframes scrollAnimation {
+
+            0% {
+                opacity:
+                    .2;
+
+                height:
+                    18px;
+            }
+
+            50% {
+                opacity:
+                    .9;
+
+                height:
+                    40px;
+            }
+
+            100% {
+                opacity:
+                    .2;
+
+                height:
+                    18px;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(
+            max-width: 760px
+        ) {
+
+            nav ul {
+                display:
+                    none;
+            }
+
+            nav {
+                padding:
+                    25px
+                    6%;
+            }
+
+            .grupo {
+
+                font-size:
+                    clamp(
+                        70px,
+                        23vw,
+                        130px
+                    );
+            }
+
+            .amazon {
+
+                letter-spacing:
+                    4px;
+            }
+
+            .descripcion {
+
+                font-size:
+                    14px;
+            }
+
+            .arbol {
+
+                width:
+                    90px;
+            }
+
+            .rama {
+
+                opacity:
+                    .8;
+            }
+
+            .coordenadas {
+
+                display:
+                    none;
+            }
+
+            .estado {
+
+                display:
+                    none;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<section class="hero">
+
+
+    <!-- Luz ambiental -->
+
+    <div class="luz"></div>
+
+    <div class="sol"></div>
+
+
+    <!-- Selva lejana -->
+
+    <div class="selva-fondo"></div>
+
+
+    <!-- Río -->
+
+    <div class="rio"></div>
+
+
+    <!-- Niebla -->
+
+    <div class="niebla"></div>
+
+
+    <!-- Árboles cercanos -->
+
+    <div class="arbol arbol-izq"></div>
+
+    <div class="arbol arbol-der"></div>
+
+
+    <!-- Ramas -->
+
+    <div class="rama rama-izquierda"></div>
+
+    <div class="rama rama-derecha"></div>
+
+
+    <!-- Hojas -->
+
+    <div class="hoja h1"></div>
+
+    <div class="hoja h2"></div>
+
+    <div class="hoja h3"></div>
+
+    <div class="hoja h4"></div>
+
+    <div class="hoja h5"></div>
+
+    <div class="hoja h6"></div>
+
+
+    <!-- Luciérnagas -->
+
+    <div class="luci l1"></div>
+
+    <div class="luci l2"></div>
+
+    <div class="luci l3"></div>
+
+    <div class="luci l4"></div>
+
+    <div class="luci l5"></div>
+
+    <div class="luci l6"></div>
+
+
+    <!-- Navegación -->
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon"></div>
+
+            GRUPO 8
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="#">
+                    INICIO
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    EQUIPO
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    PROYECTO
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    CONTACTO
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Contenido -->
+
+    <div class="contenido">
+
+
+        <div class="tag">
+
+            <span></span>
+
+            AMAZONÍA COLOMBIANA
+
+        </div>
+
+
+        <h1 class="grupo">
+
+            GRUPO 8
+
+        </h1>
+
+
+        <div class="amazon">
+
+            Tecnología · Naturaleza · Futuro
+
+        </div>
+
+
+        <div class="linea"></div>
+
+
+        <p class="descripcion">
+
+            Desde el corazón de la Amazonía,
+            exploramos ideas, tecnología y conocimiento
+            para construir soluciones que conecten
+            innovación, territorio y naturaleza.
+
+        </p>
+
+
+        <a
+            href="#"
+            class="explorar"
+        >
+
+            EXPLORAR
+
+            <span class="flecha">
+                ↓
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <!-- Información ambiental inferior -->
+
+    <div class="coordenadas">
+
+        AMAZONÍA COLOMBIANA<br>
+
+        GRUPO 08 · 2026
+
+    </div>
+
+
+    <div class="estado">
+
+        <span></span>
+
+        ECOSISTEMA ACTIVO
+
+    </div>
+
+
+    <div class="scroll"></div>
+
+
+</section>
+
+
+</body>
+</html>
